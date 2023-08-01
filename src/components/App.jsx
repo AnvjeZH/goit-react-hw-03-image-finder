@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import { fetchQuery } from './API/Api';
+import { fetchQuery } from '../API/Api';
 import Searchbar from './Searchbar/Searchbar';
 import ImageGallery from './ImageGallery/ImageGallery';
 import Loader from './Loader/Loader';
@@ -49,6 +49,9 @@ class App extends Component {
   }
 
   handleFormSubmit = query => {
+    if (this.state.query === query) {
+      return;
+    }
     this.setState({ query, images: [], page: 1 });
   };
 

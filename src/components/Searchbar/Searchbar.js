@@ -10,6 +10,7 @@ class Searchbar extends Component {
 
     handleInputChange = e => {
         const {value} = e.currentTarget
+
         this.setState({query: value.toLowerCase()})
     }
     handleSupmit = e => {
@@ -20,16 +21,12 @@ class Searchbar extends Component {
         }
 
         this.props.onSubmit(this.state.query)
-        this.setState({query: ''})
     }
   render() {
     const {query} = this.state
     return (
       <header className={css.searchbar}>
         <form className={css.searchForm} onSubmit={this.handleSupmit}>
-          {/* <button type="submit" className={css.searchForm_button}>
-            <span className={css.searchForm_button_label}>Search</span>
-          </button> */}
           <button type="submit" className={css.searchForm_button}>
             <BsSearch size='1.5em' color='#3f51b5'/>
           </button>
